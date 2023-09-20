@@ -32,6 +32,12 @@ namespace Otus.MyDictionary
 
             if (entries[bucketNum].key.GetHashCode() == key.GetHashCode())
             {
+                Console.WriteLine("Этот ключ уже используется! Хотите перезаписать данные?\t ( Y/N )");
+                var q = Console.ReadKey();
+                if (q.Key != ConsoleKey.Y)
+                {
+                    throw new ArgumentException("You died");
+                }
                 var newEntry = new Entry();
                 newEntry.value = value;
                 newEntry.key = key;
